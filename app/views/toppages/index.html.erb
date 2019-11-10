@@ -1,6 +1,10 @@
 <% if logged_in? %>
   <div class="row">
     <aside class="col-sm-4">
+      <div class="text-center">
+      <p>メニキャラ投稿する</p>
+      <p>（下の二つの欄に書いてみよう！）</p>
+      </div>
       <%= form_with(model: @micropost, local: true) do |f| %>
         <div class="form-group">
           <%= f.text_area :content1, class: 'form-control', rows: 5 %>
@@ -19,9 +23,11 @@
     </div>
   </div>
 <% else %>  
-<div class="center jumbotron">
+<div class="center jumbotron mb-5">
   <div class="text-center">
     <h1>メニキャラへようこそ！！</h1>
+    <p>みんなの持つキャラは一つではなくても良いというコンセプトで作られたのがこの「メニキャラ」</p>
+    <p>さあみんなも自分のキャラを二つ挙げてみよう！（内容は何でも良し、ただし、個人情報には十分注意してください！！）</p>
      <%= link_to '新規登録へ', signup_path, class: 'btn btn-lg btn-primary' %>
   </div>
 </div>
