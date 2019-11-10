@@ -1,6 +1,24 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザー:<%= current_user.name %></p>
-<%  else %>
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @micropost, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content1, class: 'form-control', rows: 5 %>
+        </div>
+        <div class= text-center>
+        <p>と</p>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :content2, class: 'form-control', rows: 5 %>
+        </div>
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'microposts/microposts', microposts: @microposts %>
+    </div>
+  </div>
+<% else %>  
 <div class="center jumbotron">
   <div class="text-center">
     <h1>メニキャラへようこそ！！</h1>
